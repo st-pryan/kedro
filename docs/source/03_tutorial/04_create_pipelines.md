@@ -73,7 +73,7 @@ def preprocess_shuttles(shuttles: pd.DataFrame) -> pd.DataFrame:
 Now you have functions which take one dataframe and output a pre-processed version of that dataframe. Next you should add these functions as nodes into the pipeline in `src/kedro_tutorial/pipeline.py`, so the `create_pipelines()` function looks as follows:
 
 ```python
-def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
+def create_pipeline(**kwargs) -> Dict[str, Pipeline]:
     """Create the project's pipeline.
 
     Args:
@@ -90,7 +90,7 @@ def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
         ]
     )
 
-    return {"de": de_pipeline, "__default__": de_pipeline}
+    return de_pipeline
 ```
 
 You will also need to import `node`, and your functions by adding them to the beginning of the `pipeline.py` file:
